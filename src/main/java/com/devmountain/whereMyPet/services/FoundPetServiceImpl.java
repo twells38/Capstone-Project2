@@ -1,9 +1,7 @@
 package com.devmountain.whereMyPet.services;
 
 import com.devmountain.whereMyPet.dtos.FoundPetDto;
-import com.devmountain.whereMyPet.dtos.LostPetDto;
 import com.devmountain.whereMyPet.entities.FoundPet;
-import com.devmountain.whereMyPet.entities.LostPet;
 import com.devmountain.whereMyPet.entities.User;
 import com.devmountain.whereMyPet.repositories.FoundPetRepository;
 import com.devmountain.whereMyPet.repositories.UserRepository;
@@ -18,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class FoundPetServiceImpl {
+public class FoundPetServiceImpl implements FoundPetService {
     @Autowired
     private UserRepository userRepository;
 
@@ -26,6 +24,7 @@ public class FoundPetServiceImpl {
     private FoundPetRepository foundPetRepository;
 
     //create a method to add a found pet
+    @Override
     @Transactional
     public void addFoundPet(FoundPetDto foundPetDto, Long userId){
         Optional<User> userOptional = userRepository.findById((userId));
@@ -35,6 +34,7 @@ public class FoundPetServiceImpl {
     }
 
     //create a method to delete a found pet
+    @Override
     @Transactional
     public void deleteFoundPetById(Long foundPetId){
         Optional<FoundPet> foundPetOptional = foundPetRepository.findById(foundPetId);
@@ -42,6 +42,7 @@ public class FoundPetServiceImpl {
     }
 
     //create a method to update a found pet
+    @Override
     @Transactional
     public void updateFoundPetById(FoundPetDto foundPetDto) {
         Optional<FoundPet> foundPetOptional = foundPetRepository.findById(foundPetDto.getId());
@@ -55,6 +56,7 @@ public class FoundPetServiceImpl {
         });
     }
         //create a method that find all found pet by a user
+        @Override
         public List<FoundPetDto> getAllFoundPetByUserId(Long userId){
             Optional<User> userOptional = userRepository.findById(userId);
             if(userOptional.isPresent()){
@@ -66,6 +68,7 @@ public class FoundPetServiceImpl {
         }
 
         //create a method that find a found pet by found pet's id.
+        @Override
         public Optional<FoundPetDto> getFoundPetById(Long foundPetId){
         Optional<FoundPet> foundPetOptional = foundPetRepository.findById((foundPetId));
         if(foundPetOptional.isPresent()){

@@ -2,12 +2,14 @@ package com.devmountain.whereMyPet.entities;
 
 import com.devmountain.whereMyPet.dtos.LostPetDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "Lost-Pet")
@@ -34,7 +36,8 @@ public class LostPet {
     private String contactEmail;
 
     @Column
-    private Date date;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate date;
 
     @ManyToOne
     @JsonBackReference

@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/lostPets")
+@RequestMapping("api/v1/lostPets")
 public class LostPerController {
     @Autowired
     private LostPetService lostPetService;
@@ -20,13 +21,27 @@ public class LostPerController {
     }
 
     //create a method to update an existing lost pet
+    @PutMapping
+    public void updateLostPet(@RequestBody LostPetDto lostPetDto){
+        lostPetService.updateLostPetById(lostPetDto); //invoke updateLostPetById method from lostPetService interface
+    }
 
+    //create a method to delete an existing lost pet
+    @DeleteMapping("/{lostPetId}")
+    public void deleteLostPet(@PathVariable Long lostPetId){
+        lostPetService.deleteLostPetById(lostPetId);
+    }
 
+    //create a method to retrieve a lost pet by lost pet 's id.
+    @GetMapping("/{lostPetId}")
+    public Optional<LostPetDto> getLostPetById(@PathVariable Long lostPetId){
+        return lostPetService.getLostPetById(lostPetId);
+    }
 
     //create method to retrieve all lost pet by
     //@PathVariable is used to capture values from the URL path
     @GetMapping("/user/{userId}")
-    public List<LostPetDto> lostPetDtoList(@PathVariable Long userId){
+    public List<LostPetDto> getAllLostPetByUser(@PathVariable Long userId){
       return lostPetService.getAllLostPetByUserId(userId);
     }
 

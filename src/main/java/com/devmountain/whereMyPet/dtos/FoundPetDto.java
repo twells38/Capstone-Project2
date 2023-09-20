@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -16,8 +17,8 @@ public class FoundPetDto {
     private String gender;
     private String found;
     private String contactEmail;
-    private Date date;
-    private UserDto userDto;
+    private LocalDate date;
+    //private UserDto userDto;
 
     //create a custom constructor inside DTO that accepted an entity argument.
     public FoundPetDto(FoundPet foundPet){

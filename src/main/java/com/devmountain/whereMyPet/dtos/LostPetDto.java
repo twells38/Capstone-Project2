@@ -1,13 +1,11 @@
 package com.devmountain.whereMyPet.dtos;
-
-
 import com.devmountain.whereMyPet.entities.LostPet;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -19,8 +17,8 @@ public class LostPetDto implements Serializable {
     private String gender;
     private String lastSeen;
     private String contactEmail;
-    private Date date;
-    private UserDto userDto;
+    private LocalDate date;
+    //private UserDto userDto;
 
     //create a custom constructor inside DTO that accepted an entity argument.
     public LostPetDto(LostPet lostPet){
@@ -34,6 +32,9 @@ public class LostPetDto implements Serializable {
             this.petName = lostPet.getPetName();
         }
         if(lostPet.getGender() != null){
+            this.gender = lostPet.getGender();
+        }
+        if(lostPet.getLastSeen() != null){
             this.lastSeen = lostPet.getLastSeen();
         }
         if(lostPet.getContactEmail() != null){

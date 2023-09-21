@@ -2,9 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/home.css" type="text/css">
+
     <title>WhereMyPet</title>
 </head>
 <body>
-<h1>Hello WhereMyPet</h1>
+<!--navbar-->
+
+<!--end nav-->
+<h1 style="text-align:center;">Welcome ......</h1>
+<div>
+    <a  href="./login.html" onclick="handleLogout()">Logout</a>
+</div>
+<!-- Button to open the modal login form -->
+<div class="btn-pet">
+    <button  onclick="document.getElementById('id01').style.display='block'">Your Lost Pet</button>
+    <button  onclick="document.getElementById('id02').style.display='block'">Found Pet</button>
+</div>
+<!--for data after response-->
+<div id="lostPet_container"></div>
+<div id="foundPet_container"></div>
+
+<!-- The modal for lost pet info-->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+    <!-- Modal Content -->
+    <form class="modal-content animate" >
+        <div class="container">
+            <label >Pet Type:</label>
+            <input type="text" placeholder="Pet Type" name="Pet_type" >
+
+            <label >Pet Name:</label>
+            <input type="text" placeholder="Pet Name" name="pet_name" >
+
+            <label >Gender:</label>
+            <input type="text" placeholder="Gender" name="pet_gender" >
+
+            <label >Last Seen:</label>
+            <input type="text" placeholder="Location" name="last_seen" >
+
+            <label >Contact Email:</label>
+            <input type="text" placeholder="Email" name="email" >
+
+            <label >Date:</label>
+            <input type="Date" placeholder="Date" name="date" >
+             <br>
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel-btn">Cancel</button>
+        </div>
+    </form>
+</div>
+<!-- The modal for found pet info-->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+    <!-- Modal Content -->
+    <form class="modal-content animate" >
+        <div class="container">
+            <label >Pet Type:</label>
+            <input type="text" placeholder="Pet Type" name="Pet_type" >
+
+            <label >Gender:</label>
+            <input type="text" placeholder="Gender" name="pet_gender" >
+
+            <label>Found:</label>
+            <input type="text" placeholder="Location" name="found_pet" >
+
+            <label >Contact Email:</label>
+            <input type="text" placeholder="Email" name="email" >
+
+            <label >Date:</label>
+            <input type="Date" placeholder="Date" name="date" >
+            <br>
+            <button class="btn-submit" type="submit">Submit</button>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancel-btn">Cancel</button>
+
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal for edit pet info after click update -->
+<div class="modal fade" id="note-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="note-edit-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="note-edit-modal-title">Edit your note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex">
+                <textarea class="form-control" rows="5" id="note-body"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="update-note-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./javascript/home.js" type="application/javascript"></script>
 </body>
 </html>

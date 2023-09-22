@@ -21,6 +21,7 @@
 </div>
 
 <!--for data after response-->
+
 <div id="lostPet-container"></div>
 <div id="foundPet-container"></div>
 
@@ -49,7 +50,7 @@
             <label >Date:</label>
             <input type="Date" placeholder="Date" id="date">
              <br>
-            <button type="submit" class="btn-submit">Submit</button>
+            <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="btn-submit">Submit</button>
         </div>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel-btn">Cancel</button>
@@ -90,13 +91,13 @@ d
 
 
 
-<!-- Modal for edit pet info after click update -->
-<div class="modal fade" id="note-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="note-edit-modal-title" aria-hidden="true">
+<!-- Modal for edit pet info after click update
+<div class="modal-update fade" id="pet-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="pet-edit-modal-title" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="note-edit-modal-title">Edit Your Pet Info</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="pet-edit-modal-title">Edit Your Pet Info</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal-update" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
                 <textarea class="form-control" rows="5" id="note-body"></textarea>
@@ -108,7 +109,7 @@ d
         </div>
     </div>
 </div>
-
+-->
 <script src="./javascript/home.js" type="application/javascript"></script>
 </body>
 </html>

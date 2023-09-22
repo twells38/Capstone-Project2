@@ -100,25 +100,26 @@
         let petCard = document.createElement('div');
         petCard.classList.add("m-2");
         petCard.innerHTML =`
-        <div class="card" style="width: 18rem; height:18rem;">
-            <div class="card-body">
-            <p>${obj.petType}</p>
-            <p>${obj.petName}</p>
-            <p>${obj.gender}</p>
-            <p>${obj.lastSeen}</p>
-            <p>${obj.contactEmail}</p>
-            <p>${obj.date}</p>
+            <div class="card">
+            <div class="card-content">
+            <div class="image">
+            <img src="./img/whereMyPet.png">
+            </div>
+            <p>Pet Type: ${obj.petType}</p>
+            <p>Pet Name: ${obj.petName}</p>
+            <p>Gender: ${obj.gender}</p>
+            <p>Last Seen: ${obj.contactEmail}</p>
+            <p>Date: ${obj.date}</p>
+            </div>
             </div>
             <div class="card-footer">
-            <button class="btn btn-danger" onclick="handleDelete(${obj.id})">Delete</button>
-            <button class
+            <button class="btn-delete" onclick="handleDelete(${obj.id})">Delete</button>
+            <button class="btn-update" type="button" data-bs-toggle="modal-update" data-bs-target="#pet-edit-modal">Edit</button>
             </div>
-        </div>
-
-        `
+         `
+        lostPetContainer.append(petCard);
      })
-
-    }
+   }
 
 
 

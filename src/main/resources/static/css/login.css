@@ -32,7 +32,7 @@ hr {
 }
 
 /* Set a style for the submit/register button */
-.register-btn {
+.login-btn {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -43,7 +43,7 @@ hr {
   opacity: 0.9;
 }
 
-.register-btn:hover {
+.login-btn:hover {
   opacity:1;
 }
 

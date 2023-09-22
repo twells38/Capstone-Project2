@@ -38,7 +38,7 @@ public class LostPerController {
         return lostPetService.getLostPetById(lostPetId);
     }
 
-    //create method to retrieve all lost pet by
+    //create method to retrieve all lost pet by user
     //@PathVariable is used to capture values from the URL path
     @GetMapping("/user/{userId}")
     public List<LostPetDto> getAllLostPetByUser(@PathVariable Long userId){

@@ -19,34 +19,35 @@
     <button  onclick="document.getElementById('id01').style.display='block'">Your Lost Pet</button>
     <button  onclick="document.getElementById('id02').style.display='block'">Found Pet</button>
 </div>
+
 <!--for data after response-->
-<div id="lostPet_container"></div>
-<div id="foundPet_container"></div>
+<div id="lostPet-container"></div>
+<div id="foundPet-container"></div>
 
 <!-- The modal for lost pet info-->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
     <!-- Modal Content -->
-    <form class="modal-content animate" >
+    <form class="modal-content animate" id="lostPet-form" >
         <div class="container">
             <label >Pet Type:</label>
-            <input type="text" placeholder="Pet Type" name="Pet_type" >
+            <input type="text" placeholder="Pet Type" id="pet-type">
 
             <label >Pet Name:</label>
-            <input type="text" placeholder="Pet Name" name="pet_name" >
+            <input type="text" placeholder="Pet Name" id="pet-name">
 
             <label >Gender:</label>
-            <input type="text" placeholder="Gender" name="pet_gender" >
+            <input type="text" placeholder="Gender" id="pet-gender">
 
             <label >Last Seen:</label>
-            <input type="text" placeholder="Location" name="last_seen" >
+            <input type="text" placeholder="Location" id="pet-lastSeen">
 
             <label >Contact Email:</label>
-            <input type="text" placeholder="Email" name="email" >
+            <input type="text" placeholder="Email" id="email">
 
             <label >Date:</label>
-            <input type="Date" placeholder="Date" name="date" >
+            <input type="Date" placeholder="Date" id="date">
              <br>
             <button type="submit" class="btn-submit">Submit</button>
         </div>
@@ -60,22 +61,22 @@
   <span onclick="document.getElementById('id02').style.display='none'"
         class="close" title="Close Modal">&times;</span>
     <!-- Modal Content -->
-    <form class="modal-content animate" >
+    <form class="modal-content animate" id="foundPet-form">
         <div class="container">
             <label >Pet Type:</label>
-            <input type="text" placeholder="Pet Type" name="Pet_type" >
+            <input type="text" placeholder="Pet Type" id="pet-type2">
 
             <label >Gender:</label>
-            <input type="text" placeholder="Gender" name="pet_gender" >
+            <input type="text" placeholder="Gender" id="pet-gender2">
 
             <label>Found:</label>
-            <input type="text" placeholder="Location" name="found_pet" >
+            <input type="text" placeholder="Location" id="found-location">
 
             <label >Contact Email:</label>
-            <input type="text" placeholder="Email" name="email" >
-
+            <input type="text" placeholder="Email" id="email2">
+d
             <label >Date:</label>
-            <input type="Date" placeholder="Date" name="date" >
+            <input type="Date" placeholder="Date" id="date2">
             <br>
             <button class="btn-submit" type="submit">Submit</button>
         </div>
@@ -89,24 +90,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
 <!-- Modal for edit pet info after click update -->
 <div class="modal fade" id="note-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="note-edit-modal-title" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="note-edit-modal-title">Edit your note</h5>
+                <h5 class="modal-title" id="note-edit-modal-title">Edit Your Pet Info</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body d-flex">
+            <div class="modal-body ">
                 <textarea class="form-control" rows="5" id="note-body"></textarea>
             </div>
             <div class="modal-footer">

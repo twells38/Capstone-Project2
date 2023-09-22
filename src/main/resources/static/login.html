@@ -6,19 +6,21 @@
     <title>Login Form</title>
 </head>
 <body>
-<form id="login-form ">
+<form id="login-form">
    <div class="container">
        <h1 style="text-align:center;">Login</h1>
         <hr>
-       <label for="username-login"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" id="username-login" required>
-        <label for="password-login"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" id="password-login" required>
-        <button type="submit" class="register-btn">Login</button>
+       <label for="username-login"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="username-login" required>
+
+       <label for="password-login"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="password-login" required>
+
+       <button type="submit" class="login-btn">Login</button>
     </div>
 
     <div class="container login">
-        <p>Not a member? <a href="./register.html">Create Account</a>.</p>
+        <p>Not a member? <a href="./register.html">Create Account</a></p>
     </div>
 </form>
 <script src="./javascript/login.js" type="application/javascript"></script>

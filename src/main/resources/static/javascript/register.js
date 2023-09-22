@@ -9,7 +9,7 @@ const headers = {
 const baseUrl = 'http://localhost:8080/api/v1/users'
 
 //handle input from register form
-const handleSubmit = async (e) =>{
+const handleSubmit = async(e) =>{
     e.preventDefault()
 
     let bodyObj = {
@@ -30,7 +30,7 @@ const handleSubmit = async (e) =>{
         }
     }
 
-    registerForm.addEventListener("submit", handleSubmit)//invoke handleSubmitRegister when user click submit the register form.
+    registerForm.addEventListener("submit",handleSubmit) //invoke handleSubmit when user click submit the register form.
 
 
 

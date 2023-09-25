@@ -99,26 +99,44 @@
      array.forEach(obj =>{
         let petCard = document.createElement('div');
         petCard.classList.add("m-2");
+
         petCard.innerHTML =`
+
             <div class="card">
             <div class="card-content">
-            <div class="image">
-            <img src="./img/whereMyPet.png">
-            </div>
+            <h4>Your lost Pet</h4>
             <p>Pet Type: ${obj.petType}</p>
             <p>Pet Name: ${obj.petName}</p>
             <p>Gender: ${obj.gender}</p>
-            <p>Last Seen: ${obj.contactEmail}</p>
+            <p>Last Seen: ${obj.lastSeen}</p>
+            <p>Contact: ${obj.contactEmail}</p>
             <p>Date: ${obj.date}</p>
+             </div>
+             <div class="card-footer">
+            <button class="btn-card" onclick="handleDelete(${obj.id})">Delete</button>
+            <button class="btn-card" onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal">Edit</button>
             </div>
-            </div>
-            <div class="card-footer">
-            <button class="btn-delete" onclick="handleDelete(${obj.id})">Delete</button>
-            <button class="btn-update" type="button" data-bs-toggle="modal-update" data-bs-target="#pet-edit-modal">Edit</button>
             </div>
          `
         lostPetContainer.append(petCard);
      })
+
+     //create a function to send a get request to lostPetById endpoint and invoke populateModal function to  update lostPet info when clicking update button
+       async function getLostPetById(lostPetId){
+             await fetch(baseUrl + lostPetId,{
+             method:"GET",
+             headers:headers
+             })
+             .then(res => res.json())
+             .then(data => populateModal(data))
+             .catch(err => console.error(err.message))
+       }
+
+       //create populateModal function accepts an objects an argument and uses that object to populate the field within modal
+
+       const populateModal = (obj) =>{
+
+       }
    }
 
 

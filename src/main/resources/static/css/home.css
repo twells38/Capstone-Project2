@@ -3,7 +3,7 @@ margin:0;
 border:0;
 box-sizing: border-box;
 }
-/*nav bar*/
+/*nav bar
 
 
 /* Full-width input fields */
@@ -51,7 +51,39 @@ button:hover {
 .container {
   padding: 25px;
  }
+h4{
+   text-align:center;
+}
+ #lostPet-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  background-color:pink;
+  margin:0;
+  padding:0;
+  height:100vh;
+  gap:20px;
+ }
+ .m-2 .card{
+  width:250px;
+  background-color: rgb(240,240,240);
+  border-radius: 12px;
+  border: 1px solid grey;
 
+}
+ .card-content p{
+  margin-left:2rem;
+}
+.card-footer{
+  text-align:center;
+}
+
+.btn-card{
+ width:30%
+ margin:20px;
+ border-radius:12px;
+ }
 span.psw {
   float: right;
   padding-top: 16px;

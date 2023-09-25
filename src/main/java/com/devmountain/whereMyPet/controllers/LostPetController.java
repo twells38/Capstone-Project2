@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/lostPets")
-public class LostPerController {
+public class LostPetController {
     @Autowired
     private LostPetService lostPetService;
 

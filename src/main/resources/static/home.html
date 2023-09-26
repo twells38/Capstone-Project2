@@ -65,7 +65,7 @@
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'"
         class="close" title="Close Modal">&times;</span>
-
+    <div class="modal-dialog">
     <form class="modal-content animate" id="foundPet-form">
         <div class="container">
             <label >Pet Type:</label>
@@ -79,7 +79,7 @@
 
             <label >Contact Email:</label>
             <input type="text" placeholder="Email" id="email2">
-d
+
             <label >Date:</label>
             <input type="Date" placeholder="Date" id="date2">
             <br>
@@ -87,19 +87,18 @@ d
         </div>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancel-btn">Cancel</button>
-
         </div>
-
-    </form>
+      </form>
+    </div>
 </div>
 
 
 
-<!-- Modal for edit pet info after click save-->
+<!-- Modal for edit pet info after click edit button-->
 <div class="modal fade" id="pet-update-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="pet-edit-modal-title" aria-hidden="true">
 
     <div class="modal-dialog">
-        <div class="modal-content" >
+        <form class="modal-content" >
             <div class="modal-header">
                 <h5 class="modal-title" id="pet-edit-modal-title">Edit Your Pet Info</h5>
             </div>
@@ -126,7 +125,7 @@ d
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" id="update-lostPet-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

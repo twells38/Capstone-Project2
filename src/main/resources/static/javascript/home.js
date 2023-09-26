@@ -106,7 +106,7 @@
 
             <div class="card">
             <div class="card-content">
-            <h5>Your lost Pet</h5>
+            <h4>Your lost Pet</h4>
             <p>Pet Type: ${obj.petType}</p>
             <p>Pet Name: ${obj.petName}</p>
             <p>Gender: ${obj.gender}</p>
@@ -115,7 +115,7 @@
             <p>Date: ${obj.date}</p>
              </div>
              <div class="card-footer">
-            <button class="btn-card" onclick="handleDelete(${obj.id})">Delete</button>
+            <button class="btn-card" onclick="handleDeleteLostPet(${obj.id})">Delete</button>
             <button class="btn-card" onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal">Edit</button>
             </div>
             </div>
@@ -125,7 +125,7 @@
   }
      //create a function to send a get request to lostPetById endpoint and invoke populateModal function to  update lostPet info when clicking update button
        async function getLostPetById(lostPetId){
-             await fetch(baseUrl + lostPetId,{
+             await fetch(`${baseUrl}+${lostPetId}`,{
              method:"GET",
              headers:headers
              })
@@ -136,38 +136,43 @@
 
        //create populateModal function accepts an objects an argument and uses that object to populate the field within modal
        const updateLostPetBtn = document.getElementById('update-lostPet-btn');
+       const modalType = document.getElementById('modal-type');
+       const modalName = document.getElementById('modal-name');
+       const modalGender = document.getElementById('modal-gender');
+       const modalLastSeen = document.getElementById('modal-lastSeen');
+       const modalEmail = document.getElementById('modal-email');
+       const modalDate = document.getElementById('modal-date');
 
        const populateModal = (obj) =>{
-        document.getElementById('modal-type').innerText = ''
-        document.getElementById('modal-name').innerText = ''
-        document.getElementById('modal-gender').innerText = ''
-        document.getElementById('modal-lastSeen').innerText = ''
-        document.getElementById('modal-email').innerText = ''
-        document.getElementById('modal-date').innerText = ''
+             modalType.value = ''
+             modalName.value = ''
+             modalGender.value = ''
+             modalLastSeen.value = ''
+             modalEmail.value = ''
+             modalDate.value= ''
 
-         document.getElementById('modal-type').innerText = obj.petType;
-         document.getElementById('modal-name').innerText = obj.petName;
-         document.getElementById('modal-gender').innerText = obj.gender;
-         document.getElementById('modal-lastSeen').innerText = obj.lastSeen;
-         document.getElementById('modal-email').innerText = obj.contactEmail;
-         document.getElementById('modal-date').innerText = obj.date;
+             modalType.value = obj.petType
+             modalName.value = obj.petName
+             modalGender.value = obj.gender
+             modalLastSeen.value = obj.lastSeen
+             modalEmail.value = obj.contactEmail
+             modalDate.value = obj.date
 
-
-        updateLostPetBtn.setAttribute('data-lostPet-id',obj.id);
+             updateLostPetBtn.setAttribute('data-lostPet-id',obj.id);
         }
-/*
+
         //create a function that handle update pet info
         async function handleLostPetUpdate(lostPetId){
          let bodyObj = {
             id: lostPetId,
-            petType: document.getElementById('modal-type').value,
-            petName: document.getElementById('modal-name').value,
-            gender: document.getElementById('modal-gender').value,
-            lastSeen: getElementById('modal-lastSeen').value,
-            contactEmail: getElementById('modal-email').value,
-            date: getElementById('modal-date').value
+            petType: modalType.value,
+            petName: modalName.value,
+            gender: modalGender.value,
+            lastSeen: modalLastSeen.value,
+            contactEmail: modalEmail.value,
+            date: modalDate.value
          }
-         await fetch(baseUrl,{
+         await fetch(baseUrl+lostPetId,{
                 method: "PUT",
                 body: JSON.stringify(bodyObj),
                 headers: headers
@@ -175,16 +180,35 @@
             .catch(err => console.error(err))
             return getAllLostPetByUser(userId);
         }
+        // add click EventListener to updateLostPetBtn variable
+              updateLostPetBtn.addEventListener('click', (e)=>{
+              let lostPetId = e.target.getAttribute('data-lostPet-id')
+              handleLostPetUpdate(lostPetId);
+             })
+        //create a function that handle delete lost pet by Id
+        async function handleDeleteLostPet(lostPetId){
+            await fetch(baseUrl+lostPetId,{
+                  method: "DELETE",
+                  headers: headers
+            })
+            .catch(err => console.error(err))
+            return getAllLostPetByUser(userId);
+        }
+
 
         // invoke getAllLostPetByUser function
         getAllLostPetByUser(userId);
 
-        // add click EventListener to updateLostPetBtn variable
-        updateLostPetBtn.addEventListener('click', (e)=>{
-         let lostPetId = e.target.getAttribute('data-lostPet-id')
-         handleLostPetUpdate(lostPetId);
-        })
-        */
+/*******************************************************************************************************************/
+
+        //create a function to handle a post request from lostPet form
+
+
+
+
+
+
+
 
 
 

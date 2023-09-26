@@ -28,8 +28,8 @@ public class FoundPetController {
 
     //create a method to update a found pet
     @PutMapping
-    public void updateFoundPet(@RequestBody FoundPetDto foundPetDto){
-        foundPetService.updateFoundPetById(foundPetDto);
+    public void updateFoundPet(@PathVariable Long foundPetId, @RequestBody FoundPetDto foundPetDto){
+        foundPetService.updateFoundPetById(foundPetDto, foundPetId);
     }
 
     //create a method to retrieve all found pets by user

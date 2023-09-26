@@ -21,9 +21,9 @@ public class LostPetController {
     }
 
     //create a method to update an existing lost pet
-    @PutMapping
-    public void updateLostPet(@RequestBody LostPetDto lostPetDto){
-        lostPetService.updateLostPetById(lostPetDto); //invoke updateLostPetById method from lostPetService interface
+    @PutMapping("/{lostPetId}")
+    public void updateLostPet(@PathVariable Long lostPetId ,@RequestBody LostPetDto lostPetDto){
+        lostPetService.updateLostPetById(lostPetDto, lostPetId); //invoke updateLostPetById method from lostPetService interface
     }
 
     //create a method to delete an existing lost pet

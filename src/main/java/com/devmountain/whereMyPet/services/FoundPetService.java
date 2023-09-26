@@ -17,7 +17,7 @@ public interface FoundPetService {
 
     //create a method to update a found pet
     @Transactional
-    void updateFoundPetById(FoundPetDto foundPetDto);
+    void updateFoundPetById(FoundPetDto foundPetDto, Long foundPetId);
 
     //create a method that find all found pet by a user
     List<FoundPetDto> getAllFoundPetByUserId(Long userId);

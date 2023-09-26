@@ -43,8 +43,10 @@ public class LostPetServiceImpl implements LostPetService {
     //create method to update lostPet
     @Override
     @Transactional
-    public void updateLostPetById(LostPetDto lostPetDto){
-        Optional<LostPet> lostPetOptional = lostPetRepository.findById(lostPetDto.getId());
+    public void updateLostPetById(LostPetDto lostPetDto, Long lostPetId){
+      //  Optional<LostPet> lostPetOptional = lostPetRepository.findById(lostPetDto.getId());
+        Optional<LostPet> lostPetOptional = lostPetRepository.findById(lostPetId);
+
         lostPetOptional.ifPresent(lostPet ->{
            lostPet.setPetName(lostPetDto.getPetName());
            lostPet.setPetType(lostPetDto.getPetType());

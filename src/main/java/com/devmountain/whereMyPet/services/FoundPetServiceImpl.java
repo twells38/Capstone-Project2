@@ -44,8 +44,9 @@ public class FoundPetServiceImpl implements FoundPetService {
     //create a method to update a found pet
     @Override
     @Transactional
-    public void updateFoundPetById(FoundPetDto foundPetDto) {
-        Optional<FoundPet> foundPetOptional = foundPetRepository.findById(foundPetDto.getId());
+    public void updateFoundPetById(FoundPetDto foundPetDto, Long foundPetId) {
+      //  Optional<FoundPet> foundPetOptional = foundPetRepository.findById(foundPetDto.getId());
+        Optional<FoundPet> foundPetOptional = foundPetRepository.findById(foundPetId);
         foundPetOptional.ifPresent(foundPet -> {
             foundPet.setPetType(foundPetDto.getPetType());
             foundPet.setFound(foundPetDto.getFound());

@@ -14,10 +14,10 @@
 <div>
     <a  href="./login.html" onclick="handleLogout()">Logout</a>
 </div>
-<!-- Button to open the modal login form -->
+<!-- Button to open the modal login form-->
 <div class="btn-pet">
-    <button  onclick="document.getElementById('id01').style.display='block'">Your Lost Pet</button>
-    <button  onclick="document.getElementById('id02').style.display='block'">Found Pet</button>
+    <button class="btn-p"  onclick="document.getElementById('id01').style.display='block'">Your Lost Pet</button>
+    <button class="btn-p" onclick="document.getElementById('id02').style.display='block'">Found Pet</button>
 </div>
 
 <!--for data after response-->
@@ -30,9 +30,10 @@
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'"
         class="close" title="Close Modal">&times;</span>
-    <!-- Modal Content -->
+   <div class="modal-dialog">
     <form class="modal-content animate" id="lostPet-form" >
         <div class="container">
+            <h1>Pet Info</h1>
             <label >Pet Type:</label>
             <input type="text" placeholder="Pet Type" id="pet-type">
 
@@ -57,12 +58,14 @@
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancel-btn">Cancel</button>
         </div>
     </form>
+    </div>
 </div>
+
 <!-- The modal for found pet info-->
 <div id="id02" class="modal">
   <span onclick="document.getElementById('id02').style.display='none'"
         class="close" title="Close Modal">&times;</span>
-    <!-- Modal Content -->
+
     <form class="modal-content animate" id="foundPet-form">
         <div class="container">
             <label >Pet Type:</label>
@@ -92,13 +95,13 @@ d
 
 
 
-<!-- Modal for edit pet info after click update-->
+<!-- Modal for edit pet info after click save-->
 <div class="modal fade" id="pet-update-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="pet-edit-modal-title" aria-hidden="true">
+
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" >
             <div class="modal-header">
                 <h5 class="modal-title" id="pet-edit-modal-title">Edit Your Pet Info</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body ">
             <label >Pet Type:</label>
@@ -121,7 +124,7 @@ d
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" id="update-note-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                <button type="button" id="update-lostPet-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>

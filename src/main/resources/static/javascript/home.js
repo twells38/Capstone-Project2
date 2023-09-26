@@ -9,6 +9,8 @@
     //}
 
 
+
+
     // create a JavaScript cookie to be able to store the user’s Id for subsequent requests once they’re logged in
     //JavaScript can create, read, and delete cookies with the document.cookie property.
     console.log('connected');
@@ -79,8 +81,8 @@
 
            }
       }
-
-  LostPetForm.addEventListener('submit', handleLostPetForm); // invoke handleLostPetForm function when user click submit button on form
+   // invoke handleLostPetForm function when user click submit button on form
+   LostPetForm.addEventListener('submit', handleLostPetForm);
 
     //create a function to retrieve all lost pets by userId
     async function getAllLostPetByUser(userId){
@@ -104,7 +106,7 @@
 
             <div class="card">
             <div class="card-content">
-            <h4>Your lost Pet</h4>
+            <h5>Your lost Pet</h5>
             <p>Pet Type: ${obj.petType}</p>
             <p>Pet Name: ${obj.petName}</p>
             <p>Gender: ${obj.gender}</p>
@@ -120,7 +122,7 @@
          `
         lostPetContainer.append(petCard);
      })
-
+  }
      //create a function to send a get request to lostPetById endpoint and invoke populateModal function to  update lostPet info when clicking update button
        async function getLostPetById(lostPetId){
              await fetch(baseUrl + lostPetId,{
@@ -133,11 +135,57 @@
        }
 
        //create populateModal function accepts an objects an argument and uses that object to populate the field within modal
+       const updateLostPetBtn = document.getElementById('update-lostPet-btn');
 
        const populateModal = (obj) =>{
+        document.getElementById('modal-type').innerText = ''
+        document.getElementById('modal-name').innerText = ''
+        document.getElementById('modal-gender').innerText = ''
+        document.getElementById('modal-lastSeen').innerText = ''
+        document.getElementById('modal-email').innerText = ''
+        document.getElementById('modal-date').innerText = ''
 
-       }
-   }
+         document.getElementById('modal-type').innerText = obj.petType;
+         document.getElementById('modal-name').innerText = obj.petName;
+         document.getElementById('modal-gender').innerText = obj.gender;
+         document.getElementById('modal-lastSeen').innerText = obj.lastSeen;
+         document.getElementById('modal-email').innerText = obj.contactEmail;
+         document.getElementById('modal-date').innerText = obj.date;
+
+
+        updateLostPetBtn.setAttribute('data-lostPet-id',obj.id);
+        }
+/*
+        //create a function that handle update pet info
+        async function handleLostPetUpdate(lostPetId){
+         let bodyObj = {
+            id: lostPetId,
+            petType: document.getElementById('modal-type').value,
+            petName: document.getElementById('modal-name').value,
+            gender: document.getElementById('modal-gender').value,
+            lastSeen: getElementById('modal-lastSeen').value,
+            contactEmail: getElementById('modal-email').value,
+            date: getElementById('modal-date').value
+         }
+         await fetch(baseUrl,{
+                method: "PUT",
+                body: JSON.stringify(bodyObj),
+                headers: headers
+         })
+            .catch(err => console.error(err))
+            return getAllLostPetByUser(userId);
+        }
+
+        // invoke getAllLostPetByUser function
+        getAllLostPetByUser(userId);
+
+        // add click EventListener to updateLostPetBtn variable
+        updateLostPetBtn.addEventListener('click', (e)=>{
+         let lostPetId = e.target.getAttribute('data-lostPet-id')
+         handleLostPetUpdate(lostPetId);
+        })
+        */
+
 
 
 

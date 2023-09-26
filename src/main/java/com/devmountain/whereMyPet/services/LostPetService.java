@@ -17,7 +17,7 @@ public interface LostPetService {
 
     //create method to update lostPet
     @Transactional
-    void updateLostPetById(LostPetDto lostPetDto);
+    void updateLostPetById(LostPetDto lostPetDto, Long lostPetId);
 
     //create a method to find all lost pet by user
     List<LostPetDto> getAllLostPetByUserId(Long userId);

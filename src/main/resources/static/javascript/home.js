@@ -200,9 +200,166 @@
         getAllLostPetByUser(userId);
 
 /*******************************************************************************************************************/
+      //FOUNDPET FEATHER
 
-        //create a function to handle a post request from lostPet form
 
+
+      //create a function to handle a post request from lostPet form
+        const foundPetType = document.getElementById('found-petType');
+        const foundPetGender = document.getElementById('found-petGender');
+        const foundLocation = document.getElementById('found-location');
+        const foundPetEmail = document.getElementById('found-petEmail');
+        const foundPetDate = document.getElementById('found-petDate');
+        const foundPetForm = document.getElementById('foundPet-form');
+        const foundPerContainer = document.getElementById('foundPet-container');
+
+        const handleFoundPetForm = async (e) =>{
+              e.preventDefault();
+              let bodyObj ={
+                petType: foundPetType.value,
+                gender: foundPetGender.value,
+                found: foundLocation.value,
+                contactEmail: foundPetEmail.value,
+                date: foundPetDate.value
+            }
+              await addFoundPet(bodyObj); //invoke addFoundPet function
+              //empty input after clicking submit
+              foundPetType.value = ''
+              foundPetGender.value = ''
+              foundLocation.value = ''
+              foundPetEmail.value = ''
+              foundPetDate.value = ''
+
+            }
+            //create addFoundPet function to make a post request from user
+            const baseUrlFoundPet = 'http://localhost:8080/api/v1/foundPets/'
+
+            async function addFoundPet(obj){
+            const response = await fetch(`${baseUrlFoundPet}user/${userId}`,{
+                  method: "POST",
+                  body: JSON.stringify(obj),
+                  headers: headers
+             })
+                .catch(err => console.error(err.message))
+                if(response.status === 200){
+                  return getAllFoundPetByUser(userId);
+                }
+            }
+
+
+           // invoke handleFoundPetForm function when user click submit button on form
+             foundPetForm.addEventListener('submit', handleFoundPetForm);
+
+              //create a function to retrieve all found pets by userId
+              async function getAllFoundPetByUser(userId){
+                  await fetch(`${baseUrlFoundPet}user/${userId}`,{
+                  method: "GET",
+                  headers: headers
+                  })
+                  .then(response => response.json())
+                  .then(data => createFoundPetCards(data))
+                  .catch(err => console.error(err))
+              }
+
+              //create a function createPetCards to display lost pets to user
+              const createFoundPetCards = (array) =>{
+               foundPerContainer.innerHTML = '';
+               array.forEach(obj =>{
+                  let petCard = document.createElement('div');
+                  petCard.classList.add("m-2");
+
+                  petCard.innerHTML =`
+
+                      <div class="card">
+                      <div class="card-content">
+                      <h4>Your Found Pet</h4>
+                      <p>Pet Type: ${obj.petType}</p>
+                      <p>Gender: ${obj.gender}</p>
+                      <p>Found: ${obj.found}</p>
+                      <p>Contact: ${obj.contactEmail}</p>
+                      <p>Date: ${obj.date}</p>
+                       </div>
+                       <div class="card-footer">
+                      <button class="btn-card" onclick="handleDeleteFoundPet(${obj.id})">Delete</button>
+                      <button class="btn-card" onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal">Edit</button>
+                      </div>
+                      </div>
+                   `
+                  foundPerContainer.append(petCard);
+               })
+            }
+         // create a function to send a get request to foundPetById endpoint and invoke populateModal function to update found pet info when click edit button
+               async function getFoundPetById(foundPetId){
+                      await fetch(`${baseUrlFoundPet}+${foundPetId}`,{
+                         method: "GET",
+                         headers: headers
+                      })
+                      .then(res => res.json())
+                      .then(data => populateFoundPetModal(data))
+                      .catch(err => console.error(err.message))
+               }
+
+           //create populateModal function for getFoundPetById function, accepts an object as argument and uses that object to populate the field within modal
+                const modalFoundType = document.getElementById('modal-foundType');
+                const modalFoundGender = document.getElementById('modal-foundGender');
+                const modalFound = document.getElementById('modal-found');
+                const modalFoundEmail = document.getElementById('modal-foundEmail');
+                const modalFoundDate = document.getElementById('modal-foundDate');
+                const updateFoundPetBtn = document.getElementById('update-foundPet-btn');
+
+                const populateFoundPetModal = obj =>{
+                      modalFoundType.value = ''
+                      modalFoundGender.value = ''
+                      modalFound.value = ''
+                      modalFoundEmail.value = ''
+                      modalFoundDate.value = ''
+
+                      modalFoundType.value = obj.petType
+                      modalFoundGender.value = obj.gender
+                      modalFound.value = obj.found
+                      modalFoundEmail.value = obj.contactEmail
+                      modalFoundDate.value = obj.date
+
+                      updateFoundPetBtn.setAttribute('data-foundPet-id',obj.id);
+                }
+
+
+              //create a function that handle update found pet info
+                  async function handleFoundPetUpdate(foundPetId){
+                        let bodyObj = {
+                        id: foundPetId,
+                        petType: modalFoundType.value,
+                        gender: modalFoundGender.value,
+                        found: modalFound.value,
+                        contactEmail: modalFoundEmail.value,
+                        date: modalFoundDate.value
+                        }
+                  await fetch(baseUrlFoundPet+foundPetId,{
+                        method: "PUT",
+                        body: JSON.stringify(bodyObj),
+                        headers: headers
+                  })
+                    .catch(err => console.error(err))
+                    return getAllFoundPetByUser(userId);
+                 }
+                 //add click EventListener to updateFoundPetBtn variable
+                  updateFoundPetBtn.addEventListener('click', (e)=>{
+                  let foundPetId = e.target.getAttribute('data-foundPet-id');
+                       handleFoundPetUpdate(foundPetId);
+                 })
+
+                 //create a function that handle delete found pet by id
+                 async function handleDeleteFoundPet(foundPetId){
+                       await fetch(baseUrlFoundPet+foundPetId,{
+                             method: "DELETE",
+                             headers: headers
+                       })
+                       .catch(err => console.error(err))
+                       return getAllFoundPetByUser(userId);
+                 }
+
+                 //invoke getAllFoundPetByUser function
+                 getAllFoundPetByUser(userId);
 
 
 

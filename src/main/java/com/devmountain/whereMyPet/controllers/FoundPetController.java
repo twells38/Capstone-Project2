@@ -27,7 +27,7 @@ public class FoundPetController {
     }
 
     //create a method to update a found pet
-    @PutMapping
+    @PutMapping("/{foundPetId}")
     public void updateFoundPet(@PathVariable Long foundPetId, @RequestBody FoundPetDto foundPetDto){
         foundPetService.updateFoundPetById(foundPetDto, foundPetId);
     }

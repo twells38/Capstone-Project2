@@ -33,7 +33,7 @@
    <div class="modal-dialog">
     <form class="modal-content animate" id="lostPet-form" >
         <div class="container">
-            <h1>Pet Info</h1>
+            <h3>Pet Info</h3>
             <label >Pet Type:</label>
             <input type="text" placeholder="Pet Type" id="pet-type">
 
@@ -68,22 +68,23 @@
     <div class="modal-dialog">
     <form class="modal-content animate" id="foundPet-form">
         <div class="container">
+            <h3>Pet Info</h3>
             <label >Pet Type:</label>
-            <input type="text" placeholder="Pet Type" id="pet-type2">
+            <input type="text" placeholder="Pet Type" id="found-petType">
 
             <label >Gender:</label>
-            <input type="text" placeholder="Gender" id="pet-gender2">
+            <input type="text" placeholder="Gender" id="found-petGender">
 
             <label>Found:</label>
             <input type="text" placeholder="Location" id="found-location">
 
             <label >Contact Email:</label>
-            <input type="text" placeholder="Email" id="email2">
+            <input type="text" placeholder="Email" id="found-petEmail">
 
             <label >Date:</label>
-            <input type="Date" placeholder="Date" id="date2">
+            <input type="Date" placeholder="Date" id="found-petDate">
             <br>
-            <button class="btn-submit" type="submit">Submit</button>
+            <button class="btn-submit" type="submit" onclick="document.getElementById('id02').style.display='none'">Submit</button>
         </div>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancel-btn">Cancel</button>
@@ -94,7 +95,7 @@
 
 
 
-<!-- Modal for edit pet info after click edit button-->
+<!-- Modal for edit lost pet info after click edit button-->
 <div class="modal fade" id="pet-update-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="pet-edit-modal-title" aria-hidden="true">
 
     <div class="modal-dialog">
@@ -124,6 +125,38 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" id="update-lostPet-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Modal for edit found pet info after click edit button-->
+<div class="modal fade" id="foundPet-update-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="foundPet-edit-modal-title" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <form class="modal-content" >
+            <div class="modal-header">
+                <h5 class="modal-title" id="foundPet-edit-modal-title">Edit Your Pet Info</h5>
+            </div>
+            <div class="modal-body ">
+                <label >Pet Type:</label>
+                <input type="text" placeholder="Pet Type" id="modal-foundType">
+
+                <label >Gender:</label>
+                <input type="text" placeholder="Gender" id="modal-foundGender">
+
+                <label >Found:</label>
+                <input type="text" placeholder="Location" id="modal-found">
+
+                <label >Contact Email:</label>
+                <input type="text" placeholder="Email" id="modal-foundEmail">
+
+                <label >Date:</label>
+                <input type="Date" placeholder="Date" id="modal-foundDate">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="update-foundPet-btn" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
             </div>
         </form>
     </div>

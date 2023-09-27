@@ -69,8 +69,14 @@ h4{
   justify-content:center;
   align-items:center;
   margin: 2rem 0 2rem 0;
-
- }
+}
+#foundPet-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    margin: 2rem 0 2rem 0;
+}
  .m-2 .card{
   width:250px;
   background-color: rgb(240,240,240);

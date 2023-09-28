@@ -200,9 +200,7 @@
         getAllLostPetByUser(userId);
 
 /*******************************************************************************************************************/
-      //FOUNDPET FEATHER
-
-
+      //FOUND PET FEATURES
 
       //create a function to handle a post request from lostPet form
         const foundPetType = document.getElementById('found-petType');
@@ -360,30 +358,6 @@
 
                  //invoke getAllFoundPetByUser function
                  getAllFoundPetByUser(userId);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*Cookies are data, stored in small text files, on your computer.
 When a web server has sent a web page to a browser, the connection is shut down,

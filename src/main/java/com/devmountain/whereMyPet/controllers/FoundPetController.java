@@ -43,4 +43,10 @@ public class FoundPetController {
     public Optional<FoundPetDto> fetFoundPetById(@PathVariable Long foundPetId){
         return foundPetService.getFoundPetById(foundPetId);
     }
+
+    //create a method to retrieve all found pets
+    @GetMapping("/allFoundPets")
+    public List<FoundPetDto> getAllFoundPets(){
+        return foundPetService.getAllFoundPets();
+    }
 }

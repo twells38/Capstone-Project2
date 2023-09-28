@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface FoundPetRepository extends JpaRepository<FoundPet, Long> {
     List<FoundPet> findAllByUserEquals(User user);
+
+    List<FoundPet> findAll();
 }
 
 

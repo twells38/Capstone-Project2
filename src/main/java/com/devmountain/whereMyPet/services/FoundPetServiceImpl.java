@@ -77,6 +77,13 @@ public class FoundPetServiceImpl implements FoundPetService {
         }
         return Optional.empty();
         }
+
+        //create a method that retrieve all found pets
+        @Override
+        public List<FoundPetDto> getAllFoundPets(){
+        List<FoundPet> foundPetList = foundPetRepository.findAll();
+        return foundPetList.stream().map(foundPet -> new FoundPetDto(foundPet)).collect(Collectors.toList());
+        }
 }
 
 

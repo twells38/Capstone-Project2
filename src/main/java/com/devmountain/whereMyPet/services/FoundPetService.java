@@ -24,4 +24,7 @@ public interface FoundPetService {
 
     //create a method that find a found pet by found pet's id.
     Optional<FoundPetDto> getFoundPetById(Long foundPetId);
+
+    //create a method that retrieve all found pets
+    List<FoundPetDto> getAllFoundPets();
 }

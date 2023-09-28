@@ -22,6 +22,8 @@ public class LostPetServiceImpl implements LostPetService {
     @Autowired
     private LostPetRepository lostPetRepository;
 
+
+
     //create method addLostPet
     @Override
     @Transactional
@@ -78,5 +80,12 @@ public class LostPetServiceImpl implements LostPetService {
             return Optional.of(new LostPetDto(lostPetOptional.get()));
         }
       return Optional.empty();
+    }
+
+    //create a method to retrieve all lost pets and display to landing page
+    @Override
+    public List<LostPetDto> getAllLostPets(){
+        List<LostPet> lostPetList = lostPetRepository.findAll();
+        return lostPetList.stream().map(lostPet -> new LostPetDto(lostPet)).collect(Collectors.toList());
     }
 }

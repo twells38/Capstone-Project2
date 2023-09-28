@@ -24,4 +24,7 @@ public interface LostPetService {
 
     //create a method to find a lost pet by lost pet's id
     Optional<LostPetDto> getLostPetById(Long lostPetId);
+
+    //create a method to find all lost pets
+    List<LostPetDto> getAllLostPets();
 }

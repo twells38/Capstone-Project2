@@ -11,4 +11,5 @@ import java.util.List;
 @Repository
 public interface LostPetRepository extends JpaRepository<LostPet,Long> {
     List<LostPet> findAllByUserEquals(User user);
+    List<LostPet> findAll();
 }

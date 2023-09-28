@@ -45,4 +45,10 @@ public class LostPetController {
       return lostPetService.getAllLostPetByUserId(userId);
     }
 
+    //create method to retrieve all lost pets
+    @GetMapping("/allLostPets")
+    public List<LostPetDto> getAllLostPets(){
+        return lostPetService.getAllLostPets();
+    }
+
 }

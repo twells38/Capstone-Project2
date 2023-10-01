@@ -31,8 +31,8 @@ console.log('connected');
                          </div>
                          <div class="col-md-4">
                          <div class="card-body">
-                         <p>Pet Type: <b>${obj.petType}</b></p>
-                         <p>Pet Name: <b>${obj.petName}</b></p>
+                         <p>Breed: <b>${obj.petType}</b></p>
+                         <p>Name: <b>${obj.petName}</b></p>
                          <p>Gender: <b>${obj.gender}</b></p>
                          </div>
                          </div>
@@ -82,7 +82,7 @@ console.log('connected');
                  </div>
                   <div class="col-md-4">
                 <div class="card-body">
-                <p>Pet Type: <b>${obj.petType}</b></p>
+                <p>Breed: <b>${obj.petType}</b></p>
                <p>Gender: <b>${obj.gender}</b></p>
                <p>Last Seen: <b>${obj.found}</b></p>
                </div>

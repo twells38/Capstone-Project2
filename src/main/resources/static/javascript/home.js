@@ -17,7 +17,7 @@
    /********end cookie*****/
 
     const LostPetForm = document.getElementById("lostPet-form");
-    const lostPetContainer = document.getElementById("lostPet-container");
+
 
 
 
@@ -95,32 +95,34 @@
     }
 
     //create a function createPetCards to display lost pets to user
+    const tBody = document.getElementById('lostPet-body');
     const createPetCards = (array) =>{
-     lostPetContainer.innerHTML = '';
-     array.forEach(obj =>{
-        let petCard = document.createElement('div');
-        petCard.classList.add("m-2");
+      if(array.length > 0){
+      tBody.innerHTML = '';
+       array.forEach(obj =>{
 
-        petCard.innerHTML =`
+       document.getElementById('ltable').style.visibility = 'visible';
+       let tab = document.createElement('tr');
+        tab.innerHTML = `
+           <th scope="row">${obj.id}</th>
+           <td >${obj.petType}</td>
+           <td >${obj.petName}</td>
+           <td >${obj.gender}</td>
+           <td >${obj.lastSeen}</td>
+           <td >${obj.contactEmail}</td>
+           <td >${obj.date}</td>
+           <td>
+                <div>
+                <span onclick="handleDeleteLostPet(${obj.id})" style="cursor:pointer; color:red"><i class="bi bi-trash" ></i></span>
+                <span onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal" style="color:blue"><i class="bi bi-pencil-square"></i></span>
+               </div>
+            </td>
 
-            <div class="card">
-            <div class="card-content">
-            <h4>Your lost Pet</h4>
-            <p>Pet Type: ${obj.petType}</p>
-            <p>Pet Name: ${obj.petName}</p>
-            <p>Gender: ${obj.gender}</p>
-            <p>Last Seen: ${obj.lastSeen}</p>
-            <p>Contact: ${obj.contactEmail}</p>
-            <p>Date: ${obj.date}</p>
-             </div>
-             <div class="card-footer">
-            <button class="btn-card" onclick="handleDeleteLostPet(${obj.id})">Delete</button>
-            <button class="btn-card" onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal">Edit</button>
-            </div>
-            </div>
-         `
-        lostPetContainer.append(petCard);
-     })
+        `
+        tBody.append(tab);
+     })}else{
+      document.getElementById('ltable').style.visibility = 'hidden';
+     }
   }
      //create a function to send a get request to lostPetById endpoint and invoke populateModal function to  update lostPet info when clicking update button
        async function getLostPetById(lostPetId){
@@ -258,32 +260,35 @@
                   .catch(err => console.error(err))
               }
 
-              //create a function createPetCards to display lost pets to user
+              //create a function createPetCards to display found pets to user
+              const tBodyFound = document.getElementById('foundPet-body');
+              //const foundTable = document.getElementById('foundPet-table');
+
               const createFoundPetCards = (array) =>{
-               foundPerContainer.innerHTML = '';
+               if(array.length > 0){
+               tBodyFound.innerHTML = '';
                array.forEach(obj =>{
-                  let petCard = document.createElement('div');
-                  petCard.classList.add("m-2");
+                  document.getElementById('ftable').style.visibility = 'visible';
+                  let tab = document.createElement('tr');
+                      tab.innerHTML =`
+                         <th scope="row">${obj.id}</th>
+                         <td >${obj.petType}</td>
+                         <td >${obj.gender}</td>
+                         <td >${obj.found}</td>
+                         <td >${obj.contactEmail}</td>
+                         <td >${obj.date}</td>
+                         <td>
+                            <div >
+                              <span  onclick="handleDeleteFoundPet(${obj.id})" style="cursor:pointer; color:red"><i class="bi bi-trash" ></i></span>
+                              <span  onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal" style="color:blue">Edit</span>
+                            </div>
+                         </td>
+                      `
+                  tBodyFound.append(tab);
 
-                  petCard.innerHTML =`
-
-                      <div class="card">
-                      <div class="card-content">
-                      <h4>Your Found Pet</h4>
-                      <p>Pet Type: ${obj.petType}</p>
-                      <p>Gender: ${obj.gender}</p>
-                      <p>Found: ${obj.found}</p>
-                      <p>Contact: ${obj.contactEmail}</p>
-                      <p>Date: ${obj.date}</p>
-                       </div>
-                       <div class="card-footer">
-                      <button class="btn-card" onclick="handleDeleteFoundPet(${obj.id})">Delete</button>
-                      <button class="btn-card" onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal">Edit</button>
-                      </div>
-                      </div>
-                   `
-                  foundPerContainer.append(petCard);
-               })
+               })}else{
+                document.getElementById('ftable').style.visibility = 'hidden';
+               }
             }
          // create a function to send a get request to foundPetById endpoint and invoke populateModal function to update found pet info when click edit button
                async function getFoundPetById(foundPetId){

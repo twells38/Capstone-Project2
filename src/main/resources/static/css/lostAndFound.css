@@ -11,3 +11,12 @@ box-sizing: border-box;
     border-bottom: 0.25rem solid transparent;
     font-size:1.2rem;
 }
+.navbar-brand{
+ -webkit-background-clip: text;
+        background-image: linear-gradient(to right,hsl(231, 86%, 50%),hsl(197, 82%, 70%));
+        -webkit-text-fill-color: transparent;
+        color:#464646;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+ }

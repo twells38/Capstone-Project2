@@ -39,9 +39,10 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
         if(userOptional.isPresent()){
             if(passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword())){
-                //response.add("User Login Successful");
+                //response.add("User Login Successful")
                 response.add("http://localhost:8080/home.html"); //redirect to home.html
                 response.add(String.valueOf(userOptional.get().getId()));
+                response.add(String.valueOf(userOptional.get().getUsername()));
             }else{
                 response.add("Username or Password incorrect");
             }

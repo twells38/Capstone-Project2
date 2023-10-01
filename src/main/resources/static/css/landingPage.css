@@ -1,31 +1,79 @@
 body{
-margin:0;
-border:0;
-box-sizing: border-box;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no repeat;
+    text-shadow: 0 0.05rem 0.1rem rgba(0,0,0,0.5);
+    box-shadow: insert 0 00 5rem rgba(0,0,0,0.5);
+
+
 }
-#allLostPets{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-    margin: 2rem 0 2rem 0;
+.nav-link{
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+    font-size:1.2rem;
 }
-#allFoundPets{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    align-items:center;
-    margin: 2rem 0 2rem 0;
+/*
+.cover-container{
+    max-width: 60vw;
+
+.nav-link{
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
 }
- .m-2 .card{
-  width:250px;
-  background-color: rgb(240,240,240);
-  border-radius: 12px;
-  border: 1px solid grey;
+.nav-link:hover{
+   color:  rgb(127, 218, 235);
+  border-bottom-color: rgba(255,255,255,0.5);
 }
-.card-content p{
-  margin-left:2rem;
+.nav-link.active{
+    color:#19e7ee;
+    border-bottom-color: rgba(255,255,255,0.5);
+}*/
+.btn:hover{
+    color: #333 !important;
+    font-weight: 500;
+    text-shadow: none;
 }
-container {
-  padding: 25px;
- }
+h1{
+    -webkit-background-clip: text;
+    background-image: linear-gradient(to right,hsl(231, 86%, 50%),hsl(197, 82%, 70%));
+    -webkit-text-fill-color: transparent;
+    color:#464646;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.btn{
+    background-color: #3cb371 !important;
+
+}
+
+/*
+@media(max-width:600px){
+   h3{
+       display: none;
+   }
+   h1{
+       margin-bottom: 2rem;
+   }
+
+   .lead{
+       width: 50%;
+       display: inline-block;
+       height: 30%;
+       font-size: 20px;
+       color:  #19e7ee;
+       font-weight: 400;
+
+       }
+}
+*/

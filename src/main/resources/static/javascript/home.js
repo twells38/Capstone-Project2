@@ -8,16 +8,13 @@
     //  }
     //}
 
-
-
-
     // create a JavaScript cookie to be able to store the user’s Id for subsequent requests once they’re logged in
     //JavaScript can create, read, and delete cookies with the document.cookie property.
     console.log('connected');
     const cookieArr = document.cookie.split("=");
     const userId = cookieArr[1];
 
-   /////
+   /********end cookie*****/
 
     const LostPetForm = document.getElementById("lostPet-form");
     const lostPetContainer = document.getElementById("lostPet-container");
@@ -31,6 +28,8 @@
             document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
         }
     }
+
+
 
     //create a function to handle a post request from lostPet form
     const petType = document.getElementById('pet-type');

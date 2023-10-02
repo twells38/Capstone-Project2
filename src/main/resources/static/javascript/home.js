@@ -114,7 +114,7 @@
            <td>
                 <div>
                 <span onclick="handleDeleteLostPet(${obj.id})" style="cursor:pointer; color:red"><i class="bi bi-trash" ></i></span>
-                <span onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal" style="color:blue"><i class="bi bi-pencil-square"></i></span>
+                <span onclick="getLostPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#pet-update-modal" style="color:blue;padding-left: 10px;"><i class="bi bi-pencil-square"></i></span>
                </div>
             </td>
 
@@ -280,7 +280,7 @@
                          <td>
                             <div >
                               <span  onclick="handleDeleteFoundPet(${obj.id})" style="cursor:pointer; color:red"><i class="bi bi-trash" ></i></span>
-                              <span  onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal" style="color:blue">Edit</span>
+                              <span  onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal" style="color:blue; padding-left: 10px;"><i class="bi bi-pencil-square"></i></span>
                             </div>
                          </td>
                       `

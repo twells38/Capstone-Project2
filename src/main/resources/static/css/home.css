@@ -82,12 +82,18 @@ h4{
    text-align:center;
 }
 
-#ftable{
-visibility:hidden;
-}
 #ltable{
 visibility:hidden;
 }
+
+#ftable{
+visibility:hidden;
+margin-top: 2rem;
+}
+#ftable th{
+color:#696969;
+}
+
 
 span{
 margin: 5px

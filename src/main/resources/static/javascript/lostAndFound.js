@@ -70,9 +70,10 @@ console.log('connected');
 //create foundPetCards function to display all found pets
     const showAllFoundPets = document.getElementById('allFoundPets');
     const foundPetCards = array =>{
-           showAllFoundPets.innerHTML = '';
-           array.forEach(obj =>{
-             let petCard = document.createElement('div');
+
+            showAllFoundPets.innerHTML = '';
+            array.forEach(obj =>{
+            let petCard = document.createElement('div');
              petCard.classList.add('m-2');
              petCard.innerHTML =`
              <div class="card mb-3 mt-3" style="background-color: rgb(240, 240, 240)">

@@ -29,7 +29,7 @@
         }
     }
 
-
+    /******* LOST PETS FEATURE FUNCTIONS *******/
 
     //create a function to handle a post request from lostPet form
     const petType = document.getElementById('pet-type');

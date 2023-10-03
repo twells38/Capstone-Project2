@@ -186,22 +186,26 @@
               let lostPetId = e.target.getAttribute('data-lostPet-id')
               handleLostPetUpdate(lostPetId);
              })
+
         //create a function that handle delete lost pet by Id
+
         async function handleDeleteLostPet(lostPetId){
+           let doDelete = confirm('Do you want to delete?')
+           if(doDelete){
             await fetch(baseUrl+lostPetId,{
                   method: "DELETE",
                   headers: headers
             })
             .catch(err => console.error(err))
             return getAllLostPetByUser(userId);
-        }
+        }}
 
 
         // invoke getAllLostPetByUser function
         getAllLostPetByUser(userId);
 
 /*******************************************************************************************************************/
-      //FOUND PET FEATURES
+      //FOUND PET FEATURE FUNCTIONS
 
       //create a function to handle a post request from lostPet form
         const foundPetType = document.getElementById('found-petType');
@@ -280,7 +284,7 @@
                          <td>
                             <div >
                               <span  onclick="handleDeleteFoundPet(${obj.id})" style="cursor:pointer; color:red"><i class="bi bi-trash" ></i></span>
-                              <span  onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal" style="color:blue; padding-left: 10px;"><i class="bi bi-pencil-square"></i></span>
+                              <span onclick="getFoundPetById(${obj.id})" type="button" data-bs-toggle="modal" data-bs-target="#foundPet-update-modal" style="color:blue; padding-left: 10px;"><i class="bi bi-pencil-square"></i></span>
                             </div>
                          </td>
                       `
@@ -352,13 +356,15 @@
 
                  //create a function that handle delete found pet by id
                  async function handleDeleteFoundPet(foundPetId){
+                      let doDelete = confirm('Do you want to delete?')
+                      if(doDelete){
                        await fetch(baseUrlFoundPet+foundPetId,{
                              method: "DELETE",
                              headers: headers
                        })
                        .catch(err => console.error(err))
                        return getAllFoundPetByUser(userId);
-                 }
+                 }}
 
                  //invoke getAllFoundPetByUser function
                  getAllFoundPetByUser(userId);

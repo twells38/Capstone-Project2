@@ -85,7 +85,7 @@ console.log('connected');
                 <div class="card-body">
                 <p>Breed: <b>${obj.petType}</b></p>
                <p>Gender: <b>${obj.gender}</b></p>
-               <p>Last Seen: <b>${obj.found}</b></p>
+               <p>Found: <b>${obj.found}</b></p>
                </div>
                </div>
                <div class="col-md-4">
